@@ -1,0 +1,28 @@
+{
+  "user": {
+    "id": 1024,
+    "name": "Иван Иванов",
+    "email": "ivan@example.com",
+    "isActive": true,
+    "roles": ["user", "admin"]
+  },
+  "preferences": {
+    "theme": "dark",
+    "notifications": {
+      "email": true,
+      "sms": false
+    }
+  },
+  "todoList": [
+    {
+      "id": 1,
+      "title": "Изучить синтаксис JSON",
+      "completed": true
+    },
+    {
+      "id": 2,
+      "title": "Написать скрипт на JavaScript",
+      "completed": false
+    }
+  ]
+}
