@@ -19,11 +19,6 @@ function generatePassword(length = 12, options = {}) {
   let characterPool = lowercase;
   let guaranteedCharacters = [];
 
-  // Гарантируем наличие хотя бы одного символа из выбранных категорий
-  if (includeUppercase) {
-    characterPool += uppercase;
-    guaranteedCharacters.push(uppercase[Math.floor(Math.random() * uppercase.length)]);
-  }
   if (includeNumbers) {
     characterPool += numbers;
     guaranteedCharacters.push(numbers[Math.floor(Math.random() * numbers.length)]);
@@ -45,10 +40,6 @@ function generatePassword(length = 12, options = {}) {
     .sort(() => Math.random() - 0.5)
     .join('');
 }
-
-// Примеры использования:
-console.log('Стандартный пароль:', generatePassword()); 
-// Вывод: например, "xG8!pQ2mZ9vA"
 
 console.log('Длинный пароль только из букв:', generatePassword(20, { includeNumbers: false, includeSpecial: false }));
 // Вывод: например, "jKnsDfYgHjKlMnOpQrSt"
