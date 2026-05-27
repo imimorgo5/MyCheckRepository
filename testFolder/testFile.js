@@ -11,15 +11,20 @@ function generatePassword(length = 12, options = {}) {
     includeSpecial = true
   } = options;
 
+  const special = '!@#$%^&*()_+~`|}{[]:;?><,./-=\\';
+
   const lowercase = 'abcdefghijklmnopqrstuvwxyz';
   const uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   const numbers = '0123456789';
-  const special = '!@#$%^&*()_+~`|}{[]:;?><,./-=\\';
 
   let characterPool = lowercase;
   let guaranteedCharacters = [];
 
   // Гарантируем наличие хотя бы одного символа из выбранных категорий
+  if (includeSpecial) {
+    characterPool += special;
+    guaranteedCharacters.push(special[Math.floor(Math.random() * special.length)]);
+  }
   if (includeUppercase) {
     characterPool += uppercase;
     guaranteedCharacters.push(uppercase[Math.floor(Math.random() * uppercase.length)]);
@@ -27,10 +32,6 @@ function generatePassword(length = 12, options = {}) {
   if (includeNumbers) {
     characterPool += numbers;
     guaranteedCharacters.push(numbers[Math.floor(Math.random() * numbers.length)]);
-  }
-  if (includeSpecial) {
-    characterPool += special;
-    guaranteedCharacters.push(special[Math.floor(Math.random() * special.length)]);
   }
 
   // Заполняем оставшуюся длину случайными символами из общего пула
@@ -46,9 +47,7 @@ function generatePassword(length = 12, options = {}) {
     .join('');
 }
 
-// Примеры использования:
 console.log('Стандартный пароль:', generatePassword()); 
 // Вывод: например, "xG8!pQ2mZ9vA"
 
 console.log('Длинный пароль только из букв:', generatePassword(20, { includeNumbers: false, includeSpecial: false }));
-// Вывод: например, "jKnsDfYgHjKlMnOpQrSt"
