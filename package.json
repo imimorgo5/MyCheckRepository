@@ -1,0 +1,10 @@
+{
+  "name": "code-masters-license-validator",
+  "version": "1.0.0",
+  "bin": {
+    "cm-validate": "./bin/cli.js"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0"
+  }
+}
